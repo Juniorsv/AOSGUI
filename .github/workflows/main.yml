@@ -13,12 +13,11 @@ jobs:
     steps:
       
       - id: testjenkinsaction
-        uses: mickeygoussetorg/trigger-jenkins-job@v1
+        uses: jabbukka/jenkins-trigger@main
         with:
-          jenkins-server: http://services-uscentral.skytap.com:14539/
-          jenkins-job: GithubtestUFT
-          jenkins-username: Asanchez
-          jenkins-pat: 115bbb7078b572878f748eb99c04864355
-          poll-time: 10
-          timeout-value:  600
-          verbose: true
+           url: http://services-uscentral.skytap.com:14539
+           job_name: GithubtestUFT
+           user_name: asanchez
+           api_token: 115bbb7078b572878f748eb99c04864355
+           wait: "true"
+           timeout: "1000"

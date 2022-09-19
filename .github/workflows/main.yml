@@ -1,0 +1,24 @@
+name: Test Jenkins Action
+
+on:
+  workflow_dispatch:
+
+
+jobs:
+
+  testaction:
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+      
+      - id: testjenkinsaction
+        uses: mickeygoussetorg/trigger-jenkins-job@v1
+        with:
+          jenkins-server: http://services-uscentral.skytap.com:14539/
+          jenkins-job: GithubtestUFT
+          jenkins-username: Asanchez
+          jenkins-pat: 115bbb7078b572878f748eb99c04864355
+          poll-time: 10
+          timeout-value:  600
+          verbose: true

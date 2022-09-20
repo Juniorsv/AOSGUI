@@ -1,0 +1,21 @@
+name: Test Jenkins Action
+
+on:
+  push:
+
+
+jobs:
+
+  testaction:
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+      
+      - id: testjenkinsaction
+        uses: appleboy/jenkins-action@master
+        with:
+         url: "http://services-uscentral.skytap.com:14539"
+         user: "asanchez"
+         token: 115bbb7078b572878f748eb99c04864355
+         job: "GithubtestUFT"

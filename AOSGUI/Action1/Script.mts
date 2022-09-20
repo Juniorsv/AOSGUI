@@ -1,5 +1,6 @@
 ﻿'Prueba AOS GUI
 'Prueba githubactions
+'comentario
  @@ script infofile_;_ZIP::ssf22.xml_;_
 
 Browser("Advantage Shopping").Page("Advantage Shopping").Link("UserMenu").Click @@ script infofile_;_ZIP::ssf31.xml_;_

@@ -35,9 +35,11 @@ ProductName=Micro Focus UFT One
 Version=2021
 
 [TulipAddins]
+ActiveX=
 AI=
 Database=
 File Content=
+Flex=
 Insight=
 SAP=
 Windows Applications=

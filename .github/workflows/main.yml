@@ -17,7 +17,7 @@ jobs:
         with:
          url: "http://services-uscentral.skytap.com:14539"
          user: "asanchez"
-         token: 115bbb7078b572878f748eb99c04864355
+         token: HoxS3zB2aKUy20qLoqvvDAB3
          job: "GithubtestUFT"
 
       - name: Login

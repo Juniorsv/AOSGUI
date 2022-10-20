@@ -19,3 +19,24 @@ jobs:
          user: "asanchez"
          token: 115bbb7078b572878f748eb99c04864355
          job: "GithubtestUFT"
+
+      - name: Login
+        uses: atlassian/gajira-login@master
+        env:
+          JIRA_BASE_URL: mfjr.atlassian.net
+          JIRA_USER_EMAIL: armando.sanchez@microfocus.com
+          JIRA_API_TOKEN: 0gF6b6ErI1A72XLTM1Ix9D5B
+          
+      - id: create
+        uses:  atlassian/gajira-create@master
+        with:
+          project: GA
+          issuetype: Build
+          summary: |
+            Build completed for ${{ github.repository }}
+          description: |
+            Compare branch
+          fields: '{"customfield_10171": "test"}'
+        
+      - name: Log created issue
+        run: echo "Issue ${{ steps.create.outputs.issue }} was created"

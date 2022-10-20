@@ -23,7 +23,7 @@ jobs:
       - name: Login
         uses: atlassian/gajira-login@master
         env:
-          JIRA_BASE_URL: https://mfjr.atlassian.net/
+          JIRA_BASE_URL: https://mfjr.atlassian.net
           JIRA_USER_EMAIL: armando.sanchez@microfocus.com
           JIRA_API_TOKEN: 0gF6b6ErI1A72XLTM1Ix9D5B
           

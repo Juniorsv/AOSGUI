@@ -30,7 +30,7 @@ jobs:
       - id: create
         uses:  atlassian/gajira-create@master
         with:
-          project: GA
+          project: ALMOctane
           issuetype: Build
           summary: |
             Build completed for ${{ github.repository }}

@@ -17,7 +17,7 @@ jobs:
         with:
          url: "http://services-uscentral.skytap.com:14539"
          user: "asanchez"
-         token: HoxS3zB2aKUy20qLoqvvDAB3
+         token: 11b3914fff44862a4bb8eb916f39e5d1f3
          job: "GithubtestUFT"
 
       - name: Login
@@ -25,7 +25,7 @@ jobs:
         env:
           JIRA_BASE_URL: https://mfjr.atlassian.net
           JIRA_USER_EMAIL: armando.sanchez@microfocus.com
-          JIRA_API_TOKEN: 0gF6b6ErI1A72XLTM1Ix9D5B
+          JIRA_API_TOKEN: NiCc90rUHwkrLgFNxkkZE2EC
           
       - id: create
         uses:  atlassian/gajira-create@master

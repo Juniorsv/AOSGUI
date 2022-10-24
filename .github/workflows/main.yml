@@ -12,7 +12,7 @@ jobs:
         jenkins-url: "http://services-uscentral.skytap.com:14539"
         jenkins-token: 11b3914fff44862a4bb8eb916f39e5d1f3
         user: "asanchez"
-        job-path: "GithubtestUFT"
+        job-path: "job/GithubtestUFT"
    
     - name: Get job status
       run: echo "Job status is ${{ steps.job-build.outputs.job_status }}"

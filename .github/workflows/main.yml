@@ -11,7 +11,7 @@ jobs:
       with:
        url: "http://services-uscentral.skytap.com:14539"
        job_name: GithubtestUFT
-       username: asanchez
+       username: "asanchez"
        api_token: 11b3914fff44862a4bb8eb916f39e5d1f3
        timeout: "1000"
  

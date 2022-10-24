@@ -9,7 +9,7 @@ jobs:
     - name: Trigger jenkins job
       uses: jabbukka/jenkins-trigger@main
       with:
-        url: "http://services-uscentral.skytap.com:14539"
+        url: "http://services-uscentral.skytap.com:14538"
         job_name: "GithubtestUFT"
         user_name: "asanchez"
         api_token: 11b3914fff44862a4bb8eb916f39e5d1f3

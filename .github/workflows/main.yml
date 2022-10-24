@@ -9,7 +9,7 @@ jobs:
     - name: Trigger jenkins job
       uses: jabbukka/jenkins-trigger@main
       with:
-        url: "http://services-uscentral.skytap.com:14538"
+        url: "http://services-uscentral.skytap.com:14537"
         job_name: "GithubtestUFT"
         user_name: "asanchez"
         api_token: 11b3914fff44862a4bb8eb916f39e5d1f3
@@ -35,7 +35,7 @@ jobs:
        project: TECIS
        issuetype: Bug
        summary: |
-        Build completed for ${{ github.repository }}
+        Se encontro error en prueba de UFT for ${{ github.repository }}
        description: |
         Compare branch
     - name: Log created issue

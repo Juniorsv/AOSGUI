@@ -6,14 +6,16 @@ jobs:
     runs-on: ubuntu-latest
     name: Jira Example
     steps:
-    - name: uft-jenkins
-      uses: joshlk/jenkins-githubaction@master
+    - name: "Trigger jenkins job"
+      uses: GoldenspearLLC/build-jenkins-job@master
       with:
-       url: "http://services-uscentral.skytap.com:14539"
-       job_name: /job/GithubtestUFT/build
-       username: "asanchez"
-       api_token: 11b3914fff44862a4bb8eb916f39e5d1f3
-       timeout: "1000"
+        jenkins-url: http://services-uscentral.skytap.com:14539
+        jenkins-token: 11b3914fff44862a4bb8eb916f39e5d1f3
+        user: "asanchez"
+        job-path: "GithubtestUFT"
+   
+    - name: Get job status
+      run: echo "Job status is ${{ steps.job-build.outputs.job_status }}"
  
     - name: Login
       if: failure() && steps.uft-jenkins.outcome != 'success'

@@ -6,13 +6,15 @@ jobs:
     runs-on: ubuntu-latest
     name: Jira Example
     steps:
-    - name: "Trigger jenkins job"
-      uses: GoldenspearLLC/build-jenkins-job@master
+    - name: Trigger jenkins job
+      uses: jabbukka/jenkins-trigger@main
       with:
-        jenkins-url: "http://services-uscentral.skytap.com:14539"
-        jenkins-token: 11b3914fff44862a4bb8eb916f39e5d1f3
-        user: "asanchez"
-        job-path: "job/GithubtestUFT"
+        url: "http://services-uscentral.skytap.com:14539"
+        job_name: "GithubtestUFT"
+        user_name: "asanchez"
+        api_token: 11b3914fff44862a4bb8eb916f39e5d1f3
+        wait: "true"
+        timeout: "1000"
    
     - name: Get job status
       run: echo "Job status is ${{ steps.job-build.outputs.job_status }}"

@@ -9,7 +9,7 @@ jobs:
     - name: "Trigger jenkins job"
       uses: GoldenspearLLC/build-jenkins-job@master
       with:
-        jenkins-url: http://services-uscentral.skytap.com:14539
+        jenkins-url: "http://services-uscentral.skytap.com:14539"
         jenkins-token: 11b3914fff44862a4bb8eb916f39e5d1f3
         user: "asanchez"
         job-path: "GithubtestUFT"

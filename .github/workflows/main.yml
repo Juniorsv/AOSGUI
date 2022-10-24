@@ -10,7 +10,7 @@ jobs:
       uses: joshlk/jenkins-githubaction@master
       with:
        url: "http://services-uscentral.skytap.com:14539"
-       job_name: GithubtestUFT
+       job_name: "GithubtestUFT"
        username: "asanchez"
        api_token: 11b3914fff44862a4bb8eb916f39e5d1f3
        timeout: "1000"
@@ -19,16 +19,16 @@ jobs:
       if: failure() && steps.uft-jenkins.outcome != 'success'
       uses: atlassian/gajira-login@master
       env:
-        JIRA_BASE_URL: https://mfjr.atlassian.net
-        JIRA_USER_EMAIL: armando.sanchez@microfocus.com
-        JIRA_API_TOKEN: NiCc90rUHwkrLgFNxkkZE2EC
+        JIRA_BASE_URL: https://jc-ortiz.atlassian.net
+        JIRA_USER_EMAIL: jc.ortiz.leyva@gmail.com
+        JIRA_API_TOKEN: tj8Oc9dbnF71dIp5LZLd937C
 
     - name: Create
       if: failure() && steps.uft-jenkins.outcome != 'success'
       id: create
       uses: atlassian/gajira-create@master
       with:
-       project: ALMOctane
+       project: TECIS
        issuetype: Bug
        summary: |
         Build completed for ${{ github.repository }}

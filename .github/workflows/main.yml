@@ -1,42 +1,38 @@
 name: Test Jenkins Action
 
-on:
-  push:
-
-
+on: [push]
 jobs:
-
-  testaction:
-    
+  UFTTest:
     runs-on: ubuntu-latest
-    
+    name: Jira Example
     steps:
-      
-      - id: testjenkinsaction
-        uses: appleboy/jenkins-action@master
-        with:
-         url: "http://services-uscentral.skytap.com:14539"
-         user: "asanchez"
-         token: 11b3914fff44862a4bb8eb916f39e5d1f3
-         job: "GithubtestUFT"
+    - name: uft-jenkins
+      uses: joshlk/jenkins-githubaction@master
+      with:
+       url: "http://services-uscentral.skytap.com:14539"
+       job_name: GithubtestUFT
+       username: asanchez
+       api_token: 11b3914fff44862a4bb8eb916f39e5d1f3
+       timeout: "1000"
+ 
+    - name: Login
+      if: failure() && steps.uft-jenkins.outcome != 'success'
+      uses: atlassian/gajira-login@master
+      env:
+        JIRA_BASE_URL: https://mfjr.atlassian.net
+        JIRA_USER_EMAIL: armando.sanchez@microfocus.com
+        JIRA_API_TOKEN: NiCc90rUHwkrLgFNxkkZE2EC
 
-      - name: Login
-        uses: atlassian/gajira-login@master
-        env:
-          JIRA_BASE_URL: https://mfjr.atlassian.net
-          JIRA_USER_EMAIL: armando.sanchez@microfocus.com
-          JIRA_API_TOKEN: NiCc90rUHwkrLgFNxkkZE2EC
-          
-      - id: create
-        uses:  atlassian/gajira-create@master
-        with:
-          project: ALMOctane
-          issuetype: Build
-          summary: |
-            Build completed for ${{ github.repository }}
-          description: |
-            Compare branch
-          fields: '{"customfield_10171": "test"}'
-        
-      - name: Log created issue
-        run: echo "Issue ${{ steps.create.outputs.issue }} was created"
+    - name: Create
+      if: failure() && steps.uft-jenkins.outcome != 'success'
+      id: create
+      uses: atlassian/gajira-create@master
+      with:
+       project: ALMOctane
+       issuetype: Bug
+       summary: |
+        Build completed for ${{ github.repository }}
+       description: |
+        Compare branch
+    - name: Log created issue
+      run: echo "Issue ${{ steps.create.outputs.issue }} was created"

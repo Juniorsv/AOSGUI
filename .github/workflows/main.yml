@@ -9,7 +9,7 @@ jobs:
     - name: Trigger jenkins job
       uses: jabbukka/jenkins-trigger@main
       with:
-        url: "http://services-uscentral.skytap.com:14537"
+        url: "http://services-uscentral.skytap.com:14539"
         job_name: "GithubtestUFT"
         user_name: "asanchez"
         api_token: 11b3914fff44862a4bb8eb916f39e5d1f3
@@ -25,7 +25,7 @@ jobs:
       env:
         JIRA_BASE_URL: https://jc-ortiz.atlassian.net
         JIRA_USER_EMAIL: jc.ortiz.leyva@gmail.com
-        JIRA_API_TOKEN:  ${{ secrets.JiraAPIToken }}
+        JIRA_API_TOKEN:  ${{secrets.JiraAPIToken}}
 
     - name: Create
       if: failure() && steps.uft-jenkins.outcome != 'success'

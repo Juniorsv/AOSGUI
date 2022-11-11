@@ -39,4 +39,4 @@ jobs:
        description: |
         Compare branch
     - name: Log created issue
-      run: echo "Issue ${{ steps.create.outputs.issue }} was created"
+      run: echo "Problema ${{ steps.create.outputs.issue }} was created"

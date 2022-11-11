@@ -37,6 +37,6 @@ jobs:
        summary: |
         Se encontro error en prueba de UFT for ${{ github.repository }}
        description: |
-        Compare branch
+        UFT detecto un error
     - name: Log created issue
       run: echo "Problema ${{ steps.create.outputs.issue }} was created"

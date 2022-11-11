@@ -25,7 +25,7 @@ jobs:
       env:
         JIRA_BASE_URL: https://jc-ortiz.atlassian.net
         JIRA_USER_EMAIL: jc.ortiz.leyva@gmail.com
-        JIRA_API_TOKEN: f62ufl3I6GLSesZ9tu3M607F
+        JIRA_API_TOKEN:  ${{ secrets.JiraAPIToken }}
 
     - name: Create
       if: failure() && steps.uft-jenkins.outcome != 'success'

@@ -1,0 +1,42 @@
+name: Test Jenkins Action
+
+on: [push]
+jobs:
+  UFTTest:
+    runs-on: ubuntu-latest
+    name: Jira Example
+    steps:
+    - name: Trigger jenkins job
+      uses: jabbukka/jenkins-trigger@main
+      with:
+        url: "http://services-uscentral.skytap.com:14538"
+        job_name: "GithubtestUFT"
+        user_name: "asanchez"
+        api_token: 11b3914fff44862a4bb8eb916f39e5d1f3
+        wait: "true"
+        timeout: "1000"
+   
+    - name: Get job status
+      run: echo "Job status is ${{ steps.job-build.outputs.job_status }}"
+ 
+    - name: Login
+      if: failure() && steps.uft-jenkins.outcome != 'success'
+      uses: atlassian/gajira-login@master
+      env:
+        JIRA_BASE_URL: https://jc-ortiz.atlassian.net
+        JIRA_USER_EMAIL: jc.ortiz.leyva@gmail.com
+        JIRA_API_TOKEN:  ${{secrets.JiraAPIToken}}
+
+    - name: Create
+      if: failure() && steps.uft-jenkins.outcome != 'success'
+      id: create
+      uses: atlassian/gajira-create@master
+      with:
+       project: TECIS
+       issuetype: Bug
+       summary: |
+        Se encontro error en prueba de UFT for ${{ github.repository }}
+       description: |
+        UFT detecto un error
+    - name: Log created issue
+      run: echo "Problema ${{ steps.create.outputs.issue }} was created"
